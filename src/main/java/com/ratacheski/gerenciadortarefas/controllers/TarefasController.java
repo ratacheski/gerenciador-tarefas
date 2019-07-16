@@ -53,7 +53,7 @@ public class TarefasController {
             result.rejectValue("dataExpiracao", "tarefa.dataExpiracaoInvalida", "A data de Expiração não pode ser anterior à data Atual");
         }
         if (result.hasErrors()) {
-            modelAndView.setViewName("/tarefas/inserir");
+            modelAndView.setViewName("redirect:/tarefas/inserir");
             modelAndView.addObject(tarefa);
         } else {
             String emailUsuario = request.getUserPrincipal().getName();
@@ -83,7 +83,7 @@ public class TarefasController {
             result.rejectValue("dataExpiracao", "tarefa.dataExpiracaoInvalida", "A data de Expiração não pode ser anterior à data Atual");
         }
         if (result.hasErrors()) {
-            modelAndView.setViewName("/tarefas/alterar");
+            modelAndView.setViewName("redirect:/tarefas/alterar");
             modelAndView.addObject(tarefa);
         } else {
             modelAndView.setViewName("redirect:/tarefas/listar");
