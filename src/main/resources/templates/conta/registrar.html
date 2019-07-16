@@ -1,43 +1,54 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pt">
 <head>
     <meta charset="UTF-8">
     <title>Gerenciador de Tarefas - Registro de Usuário</title>
+
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 10px">
-    <a class="navbar-brand" href="#">Gerenciador de Tarefas</a>
-</nav>
 
+<body class="login-body">
 <div class="container">
-    <h3>Registro de Novo Usuário</h3>
-
-    <form class="form-horizontal" action="/registration" method="post" th:object="${usuario}">
-        <div class="row">
-            <div class="form-group col-md-6 ">
-                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}">
-                    <label th:errors="*{email}" class="validation-message"></label>
-                </div>
-                <label>E-mail: </label>
-                <input type="text" class="form-control" th:field="*{email}">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3>Registro de Novo Usuário</h3>
+            </div>
+            <div class="card-body">
+                <form action="/registration" method="post" th:object="${usuario}" class="form-signin">
+                    <div class="input-group form-group">
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}">
+                            <label th:errors="*{email}" class="validation-message"></label>
+                        </div>
+                        <input type="text" class="form-control" placeholder="E-mail" th:field="*{email}">
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('senha')}">
+                            <label th:errors="*{senha}" class="validation-message"></label>
+                        </div>
+                        <input type="password" class="form-control" placeholder="Senha" th:field="*{senha}">
+                    </div>
+                    <div class="input-group form-group">
+                        <input type="password" class="form-control" placeholder="Repetir Senha" name="senhaRepetida">
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn registrar_btn">Registrar</button>
+                    </div>
+                    <div class="form-group text-center">
+                        <a href="/login">
+                            <button type="button" class="btn voltar_btn">Voltar</button>
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="row">
-            <div class="form-group col-md-6 ">
-                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('senha')}">
-                    <label th:errors="*{senha}" class="validation-message"></label>
-                </div>
-                <label>Senha: </label>
-                <input type="password" class="form-control" th:field="*{senha}">
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Registrar</button>
-    </form>
+    </div>
 </div>
-
-<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
-<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-
 </body>
 </html>

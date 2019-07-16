@@ -1,44 +1,57 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <title>Gerenciador de Tarefas - Login</title>
+    <title>Gerenciador de Tarefas</title>
+
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
-<body>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 10px">
-    <a class="navbar-brand" href="#">Gerenciador de Tarefas</a>
-</nav>
+<body class="login-body">
 <div class="container">
-    <h3>Login</h3>
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3>Login</h3>
+            </div>
+            <div class="card-body">
+                <form action="/login" method="post" class="form-signin">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Usuário" name="email">
 
-    <form action="/login" method="post" class="form-signin">
-        <div class="form-group">
-            <div class="col-md-9 ">
-                <input type="text" class="form-control" placeholder="E-mail" name="email">
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="Senha" name="senha" >
+                    </div>
+                    <div class="row align-items-center remember">
+                        <input type="checkbox">Lembrar de Mim
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn login_btn">Login</button>
+                    </div>
+                </form>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-9 ">
-                <input type="password" class="form-control" placeholder="Senha" name="senha">
-            </div>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Login</button>
-        </div>
-        <div class="form-group">
-            <div class="col-md-9">
+            <div class="card-footer">
+                <div class="d-flex justify-content-center links">
+                    Não Possui uma Conta?<a href="/registration">Cadastre-se</a>
+                </div>
+                <div class="d-flex justify-content-center links">
+                    <a href="#">Esqueceu sua Senha?</a>
+                </div>
                 <div class="alert alert-danger" role="alert" th:if="${param.error}">Não foi Possível Fazer Login!</div>
             </div>
         </div>
-        <div class="form-group">
-            <span>Não possui conta? <a href="/registration">Cadastre-se</a></span>
-        </div>
-    </form>
+    </div>
 </div>
-
-<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
-<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
