@@ -36,6 +36,8 @@ public class ContaController {
         Usuario usuario1 = usuarioService.findByEmail(usuario.getEmail());
         if (usuario1 != null) {
             result.rejectValue("email", "", "Usuário já Cadastrado!");
+        } else if ( usuario.getSenha() == ""){
+            result.rejectValue("senha", "", "Senha não pode ser Nula!");
         }
         if (result.hasErrors()){
             modelAndView.setViewName("conta/registrar");
